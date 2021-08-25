@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+
 def get_date():
     chrome_driver_path = "/Users/kevin/Desktop/chromedriver"
     driver = webdriver.Chrome(executable_path=chrome_driver_path)
@@ -16,7 +17,8 @@ def get_date():
     timeout = 3
 
     try:
-        element_present = EC.presence_of_element_located((By.LINK_TEXT, 'Show'))
+        element_present = EC.presence_of_element_located(
+            (By.LINK_TEXT, 'Show'))
         WebDriverWait(driver, timeout).until(element_present)
     except TimeoutException:
         print("Timed out waiting for page to load")
@@ -24,7 +26,8 @@ def get_date():
         print("Page loaded")
 
     # click show more button
-    driver.find_element_by_xpath('/html/body/table[2]/tbody/tr[1]/td/div[1]/div[2]/div[3]/span/a').click()
+    driver.find_element_by_xpath(
+        '/html/body/table[2]/tbody/tr[1]/td/div[1]/div[2]/div[3]/span/a').click()
 
     # saving html from medicaid website to a file
     html_source = driver.page_source
@@ -82,5 +85,3 @@ def get_date():
 #         print(f" {drug_dictionary['restricted']}")
 #     print(f" {drug_dictionary['code']} ")
 #     # print(f"{drug_dictionary['other']}")
-
-get_date()

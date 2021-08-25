@@ -1,21 +1,34 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>California Medicaid (Medi-Cal) - Code 1 Formulary</title>
+    <style>
+        body {
+            background-color: linen;
+            font-family: Georgia;
+        }
+    </style>
 </head>
+
 <body>
-<h1>California Medicaid (Medi-Cal) - Code 1 Formulary</h1>
-<!--{'drug_name': 'ZIDOVUDINE 10 MG/ML SYRUP', 'restricted': 'Restricted to use as combination therapy in the treatment of Human Immunodeficiency Virus (HIV) infection. ', 'code': 'mfg codes:49702', 'other': 'RETROVIR'},-->
-{% for x in medicaid %}
-{% if 'restricted' in x %}
-<h4>{{x.drug_name }}</h4>
-<p>{{x.restricted}}</p>
-{% endif %}
-{% endfor %}
-<!--<h2>{{ key.0.name}}</h2>-->
+    <h1>California Medicaid (Medi-Cal) - Code 1 Formulary</h1>
+    <a
+        href="https://files.medi-cal.ca.gov/pubsdoco/manual/man_query.aspx?wSearch=%28%23filename+drugscdl%2a.doc+OR+%23filename+drugscdl%2a.zip%29&wFLogo=Contract+Drugs+List&wFLogoH=52&wFLogoW=516&wAlt=Contract+Drugs+List&wPath=N">Contract
+        Drugs List</a>
+    <div> <a href="https://www.dhcs.ca.gov/services/Pages/ff.html">Medi-Cal Formulary</a>
+    </div>
+    <!--{'drug_name': 'ZIDOVUDINE 10 MG/ML SYRUP', 'restricted': 'Restricted to use', 'code': 'mfg codes:49702', 'other': 'RETROVIR'},-->
+    {% for x in medicaid %}
+    {% if 'restricted' in x %}
+    <h4>{{x.drug_name }}</h4>
+    <p>- {{x.restricted}}</p>
+    {% endif %}
+    {% endfor %}
 </body>
+
 </html>

@@ -5,19 +5,14 @@ from california_medicaid.get_new_data import *
 from bs4 import BeautifulSoup
 import requests
 
+
 def index(request):
 
-    # extract html info using beautiful soup
-    # with open("website.html") as file:
-    #     contents = file.read()
-
-    req = requests.get('https://raw.githubusercontent.com/KevinWong1/KevinWong1-california_medicaidv1/main/website.html')
-
+    req = requests.get(
+        'https://raw.githubusercontent.com/KevinWong1/KevinWong1-california_medicaidv1/main/california_medicaid/website.html')
     soup = BeautifulSoup(req.content, 'html.parser')
-
     list_of_dictionary = []
     y = soup.select('.ffitem .body-sml span')
-
     for x in y:
         temp_dictionary = {}
         a = x.select('h3')
@@ -26,7 +21,6 @@ def index(request):
         b = x.select('p')
 
         for _ in b:
-
             if 'cd1' in str(_):
                 temp_dictionary['restricted'] = _.getText()
             elif 'codes' in str(_):

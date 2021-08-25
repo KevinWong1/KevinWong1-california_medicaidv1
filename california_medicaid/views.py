@@ -3,13 +3,17 @@ from django.shortcuts import render
 # Create your views here.
 from california_medicaid.get_new_data import *
 from bs4 import BeautifulSoup
+import requests
+
 def index(request):
 
     # extract html info using beautiful soup
-    with open("website.html") as file:
-        contents = file.read()
+    # with open("website.html") as file:
+    #     contents = file.read()
 
-    soup = BeautifulSoup(contents, 'html.parser')
+    req = requests.get('https://raw.githubusercontent.com/KevinWong1/KevinWong1-california_medicaidv1/main/website.html')
+
+    soup = BeautifulSoup(req.content, 'html.parser')
 
     list_of_dictionary = []
     y = soup.select('.ffitem .body-sml span')

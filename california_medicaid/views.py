@@ -37,7 +37,7 @@ def index(request):
             list_of_dictionary.append(temp_dictionary)
 
     sorted_list = sorted(list_of_dictionary, key=lambda i: i['drug_name'])
-    print(sorted_list)
+    # print(sorted_list)
 
     context = {'medicaid': sorted_list}
     return render(request, 'california_medicaid/index.html', context)

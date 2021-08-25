@@ -10,8 +10,6 @@ from selenium.webdriver.common.by import By
 def get_date():
     chrome_driver_path = "/Users/kevin/Desktop/chromedriver"
     driver = webdriver.Chrome(executable_path=chrome_driver_path)
-
-
     driver.get("https://www.dhcs.ca.gov/services/Pages/ff.html")
 
 # wait for page to finish loading
@@ -84,3 +82,5 @@ def get_date():
 #         print(f" {drug_dictionary['restricted']}")
 #     print(f" {drug_dictionary['code']} ")
 #     # print(f"{drug_dictionary['other']}")
+
+get_date()

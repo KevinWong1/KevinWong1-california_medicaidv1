@@ -1,7 +1,4 @@
 from django.shortcuts import render
-# from get_new_data import *
-# Create your views here.
-from california_medicaid.get_new_data import *
 from bs4 import BeautifulSoup
 import requests
 
